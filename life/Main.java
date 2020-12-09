@@ -8,7 +8,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
-        int s = scanner.nextInt();
+        long s = scanner.nextLong();
+        int m = scanner.nextInt();
 
         boolean[][] grid = new boolean[n][n];
         Random random = new Random(s);
