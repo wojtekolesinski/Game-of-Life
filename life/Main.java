@@ -12,6 +12,9 @@ public class Main {
         int m = scanner.nextInt();
 
         Universe life = new Universe(n, s);
+        for (int k = 0; k < m; k++) {
+            life = Generations.getNextGeneration(life);
+        }
 
         for (int i = 0; i < life.grid.length; i++) {
             for (int j = 0; j < life.grid[0].length; j++) {
@@ -19,5 +22,6 @@ public class Main {
             }
             System.out.println();
         }
+
     }
 }
