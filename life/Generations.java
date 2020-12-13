@@ -1,14 +1,24 @@
 package life;
 
 public class Generations {
+
     public static boolean willSurvive(boolean[][] grid, int y, int x) {
         int neighbours = 0;
         if (y != grid.length - 1 && y != 0) {
-
+            for (int i = -1; i <= 1; i++) {
+                for (int j = -1; j < 1; j++) {
+                    if (i == 0 && j == 0) {
+                        continue;
+                    }
+                    if (grid[y+i][x+j]) {
+                        neighbours++;
+                    }
+                }
+            }
         }
 
 
-        return neighbours <= 3 && neighbours >= 2;
+        return neighbours == 3 || neighbours == 2;
     }
 
     public static Universe getNextGeneration(Universe life) {
