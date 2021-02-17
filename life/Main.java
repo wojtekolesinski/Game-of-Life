@@ -20,19 +20,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
-        long s = 10;
-        int m = 9;
+        int m = 1000;
 
-        Universe life = new Universe(n, s);
+        Universe life = new Universe(n);
 //        life.print();
+        clear();
         for (int k = 0; k < m; k++) {
             life.print();
             life = Generations.getNextGeneration(life);
-            try {
-                Thread.sleep(500);
+            /*try {
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/
             clear();
         }
 
