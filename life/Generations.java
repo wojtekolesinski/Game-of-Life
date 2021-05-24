@@ -1,6 +1,10 @@
 package life;
 
+import javax.swing.*;
+
 public class Generations {
+
+
 
     public static boolean willSurvive(boolean[][] grid, int y, int x) {
 
@@ -51,5 +55,46 @@ public class Generations {
         }
 
         return new Universe(nextGen);
+    }
+
+    public Generations() {
+        GameOfLife game = new GameOfLife();
+        Timer timer = new Timer(1000, e->{});
+
+        while(game.universe.hasAlive()) {
+            while (game.pause) {
+                if (game.restart) {
+                    game.universe = new Universe(game.uniSize);
+                    game.gen.getAndSet(1);
+                    game.restart = false;
+                    game.repaint();
+                }
+
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (game.restart) {
+                game.universe = new Universe(game.uniSize);
+                game.gen.getAndSet(1);
+                game.restart = false;
+                game.repaint();
+            }
+
+            game.universe = getNextGeneration(game.universe);
+            game.repaint();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new Generations();
     }
 }
