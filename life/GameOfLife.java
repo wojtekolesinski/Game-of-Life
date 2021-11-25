@@ -68,8 +68,9 @@ public class GameOfLife extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 2, 10, 10));
 
-        pauseButton = new JToggleButton(new ImageIcon("data\\pause.png"));
+        pauseButton = new JToggleButton( "pause");//new ImageIcon("data\\pause.png"));
         pauseButton.setName("PlayToggleButton");
+        pauseButton.setFont(pauseButton.getFont().deriveFont(9f));
         pauseButton.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 5));
         pauseButton.setPreferredSize(new Dimension(40, 30));
         pauseButton.addActionListener(e -> {
@@ -82,6 +83,7 @@ public class GameOfLife extends JFrame {
 
         restartButton = new JButton("restart");
         restartButton.setName("ResetButton");
+        restartButton.setFont(restartButton.getFont().deriveFont(9f));
         restartButton.setBorder(BorderFactory.createEmptyBorder(10, 5, 10, 5));
         restartButton.setPreferredSize(new Dimension(40, 30));
         restartButton.addActionListener(e -> {
